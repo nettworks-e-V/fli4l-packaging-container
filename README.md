@@ -34,7 +34,7 @@ You now have two options:
 #### 2a Image from Docker Hub
 
 ```shell
-sudo docker pull starwarsfan/fli4l-packaging
+sudo docker pull starwarsfan/fli4l-packaging-container
 ```
 
 #### 2b Build from scratch
@@ -49,13 +49,13 @@ cd fli4l-packaging-container
 ##### Build image
 
 ```shell
-sudo docker build -t starwarsfan/fli4l-packaging:latest .
+sudo docker build -t starwarsfan/fli4l-packaging-container:latest .
 ```
 
 ### 3. Starting docker container
 
 ```shell
-sudo docker run --name fli4l-packaging -d starwarsfan/fli4l-packaging:latest
+sudo docker run --name fli4l-packaging-container -d starwarsfan/fli4l-packaging-container:latest
 ```
 
 #### 3.a Mount volume or folder for svn checkout
@@ -64,7 +64,7 @@ With the additional run parameter _-v <host-folder>:/opt/svn-checkout/_ you can 
 host which contains the the svn checkout outside of the container. So the run command may look like the following example:
 
 ```shell
-sudo docker run --name fli4l-packaging -v /data/svn-checkout/:/opt/svn-checkout/ ...
+sudo docker run --name fli4l-packaging-container -v /data/svn-checkout/:/opt/svn-checkout/ ...
 ```
 
 ### 4. Useful commands
@@ -78,23 +78,23 @@ sudo docker ps -a
 Stop the container
 
 ```shell
-sudo docker stop fli4l-packaging
+sudo docker stop fli4l-packaging-container
 ```
 
 Start the container
 
 ```shell
-sudo docker start fli4l-packaging
+sudo docker start fli4l-packaging-container
 ```
 
 Get logs from container
 
 ```shell
-sudo docker logs -f fli4l-packaging
+sudo docker logs -f fli4l-packaging-container
 ```
 
 Open cmdline inside of container
 
 ```shell
-sudo docker exec -i -t fli4l-packaging /bin/bash
+sudo docker exec -i -t fli4l-packaging-container /bin/bash
 ```
