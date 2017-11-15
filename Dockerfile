@@ -16,7 +16,7 @@ VOLUME ${SHARED_DIR}
 
 RUN apt-get update -y \
  && apt-get upgrade -y
-RUN apt-get install -y \
+RUN apt-get install -y --no-install-recommends \
     locales \
     mc \
     git \
