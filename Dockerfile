@@ -21,7 +21,24 @@ RUN apt-get install -y --no-install-recommends \
     mc \
     git \
     subversion \
-    wget
+    wget \
+    libxml2-utils \
+    dos2unix \
+    make \
+    netpbm \
+    fig2dev \
+    ghostscript \
+    texlive-font-utils \
+    texlive-latex-base \
+    texlive-lang-english \
+    texlive-lang-french \
+    texlive-lang-german \
+    texlive-latex-recommended \
+    texlive-fonts-recommended \
+    lmodern \
+    texlive-latex-extra \
+    latex2html \
+    texlive-fonts-extra
 
 # Set locale to UTF8
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
