@@ -40,6 +40,9 @@ RUN apt-get install -y --no-install-recommends \
     latex2html \
     texlive-fonts-extra
 
+# Set PERL_USE_UNSAFE_INC to make Debian 9 latex2html work
+ENV PERL_USE_UNSAFE_INC 1
+
 # Set locale to UTF8
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
  && locale-gen en_US.UTF-8 \
