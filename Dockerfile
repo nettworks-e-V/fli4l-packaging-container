@@ -39,7 +39,8 @@ RUN apt-get install -y --no-install-recommends \
     texlive-latex-extra \
     latex2html \
     texlive-fonts-extra \
-    openssh-client
+    openssh-client \
+    curl
 
 # Set PERL_USE_UNSAFE_INC to make Debian 9 latex2html work
 ENV PERL_USE_UNSAFE_INC 1
