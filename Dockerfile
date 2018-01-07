@@ -5,9 +5,9 @@ MAINTAINER Yves Schumann <yves@eisfair.org>
 # Set PERL_USE_UNSAFE_INC to make Debian 9 latex2html work
 ENV WORK_DIR=/data/work \
     SHARED_DIR=/data/shared/fli4l \
-    DEBIAN_FRONTEND=noninteractive
-    PERL_USE_UNSAFE_INC 1
-    LC_ALL en_US.UTF-8
+    DEBIAN_FRONTEND=noninteractive \
+    PERL_USE_UNSAFE_INC 1 \
+    LC_ALL en_US.UTF-8 \
     TZ='Europe/Berlin'
 
 # Mount point for development workspace
