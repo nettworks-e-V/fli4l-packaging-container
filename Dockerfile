@@ -21,17 +21,19 @@ VOLUME ${SHARED_DIR}
 RUN apt-get update -y \
  && apt-get upgrade -y
 RUN apt-get install -y --no-install-recommends \
-    locales \
-    mc \
-    git \
-    subversion \
-    wget \
-    libxml2-utils \
     dos2unix \
-    make \
-    netpbm \
+    curl \
     fig2dev \
+    git \
+    locales \
+    libxml2-utils \
+    make \
+    mc \
+    netpbm \
+    openssh-client \
     ghostscript \
+    rsync \
+    subversion \
     texlive-font-utils \
     texlive-latex-base \
     texlive-lang-english \
@@ -43,8 +45,7 @@ RUN apt-get install -y --no-install-recommends \
     texlive-latex-extra \
     latex2html \
     texlive-fonts-extra \
-    openssh-client \
-    curl
+    wget
 
 # Set locale to UTF8
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
