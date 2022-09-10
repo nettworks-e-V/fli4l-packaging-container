@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:11-slim
 MAINTAINER Yves Schumann <yves@eisfair.org>
 
 # Define environment vars
@@ -7,7 +7,9 @@ ENV WORK_DIR=/data/work \
     SHARED_DIR=/data/shared/fli4l \
     DEBIAN_FRONTEND=noninteractive \
     PERL_USE_UNSAFE_INC=1 \
-    LC_ALL=en_US.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    LANGUAGE=C.UTF-8 \
+    LANG=C.UTF-8 \
     TZ='Europe/Berlin'
 
 # Mount point for development workspace
@@ -19,9 +21,10 @@ RUN mkdir -p ${SHARED_DIR}
 VOLUME ${SHARED_DIR}
 
 RUN apt-get update -y \
- && apt-get upgrade -y
-RUN apt-get install -y --no-install-recommends \
+ && apt-get upgrade -y \
+ && apt-get install -y \
     dos2unix \
+    ca-certificates \
     curl \
     fig2dev \
     git \
@@ -31,9 +34,17 @@ RUN apt-get install -y --no-install-recommends \
     mc \
     netpbm \
     openssh-client \
-    ghostscript \
     rsync \
     subversion \
+    wget \
+ && apt-get clean \
+ && update-ca-certificates
+
+RUN locale-gen en_US.UTF-8 \
+ && dpkg-reconfigure locales
+
+RUN apt-get install -y \
+    ghostscript \
     texlive-font-utils \
     texlive-latex-base \
     texlive-lang-english \
@@ -45,7 +56,7 @@ RUN apt-get install -y --no-install-recommends \
     texlive-latex-extra \
     latex2html \
     texlive-fonts-extra \
-    wget
+ && apt-get clean
 
 # Set locale to UTF8
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen \
